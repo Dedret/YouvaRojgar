@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latest Govt Jobs</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .job-card {
+      background-color: white;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .job-card:hover {
+      transform: scale(1.01);
+    }
+    .job-card h3 {
+      margin: 0;
+      color: #004aad;
+    }
+    .job-card p {
+      margin: 5px 0;
+    }
+    .job-card a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #004aad;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>📌 Latest Government Jobs</header>
+
+  <div class="container">
+    <input type="text" id="searchInput" placeholder="Search jobs..." onkeyup="filterJobs()" />
+
+    <div class="job-card">
+      <h3>SSC CHSL 2025</h3>
+      <p>Last Date to Apply: 15 August 2025</p>
+    <a href="jobs/ssc-chsl.html">See Details</a>
+     </div>
+
+    <div class="job-card">
+      <h3>Railway Group D 2025</h3>
+      <p>Last Date: 20 July 2025</p>
+    <a href="jobs/ssc-chsl.html" class="details-button">See Details</a>
+
+    </div>
+
+    <div class="job-card">
+      <h3>RRB NTPC 2025</h3>
+      <p>Last Date: 10 August 2025</p>
+      <a href="jobs/ssc-chsl.html" class="details-button">See Details</a>
+    </div>
+
+    <div class="job-card">
+      <h3>DRDO Apprentice 2025</h3>
+      <p>Last Date: 5 August 2025</p>
+<a href="jobs/ssc-chsl.html" class="details-button">See Details</a>
+
+    </div>
+
+    <div class="job-card">
+      <h3>ISRO Technician-B</h3>
+      <p>Last Date: 30 July 2025</p>
+    <a href="jobs/ssc-chsl.html">See Details</a>
+    </div>
+
+    <a href="index.html" class="back-button">⬅️ Back to Home</a>
+  </div>
+
+  <script>
+    function filterJobs() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.getElementsByClassName('job-card');
+      
+      for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        if (title.includes(input)) {
+          cards[i].style.display = '';
+        } else {
+          cards[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
