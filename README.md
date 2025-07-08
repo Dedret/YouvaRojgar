@@ -34,7 +34,7 @@ Get all updates related to:
 ## 🙋‍♂️ Maintained By:
 **Sourabh Lodhi**  
 Email: _[ysourabh1038@gmail.com]_  
-GitHub: [@your-username](https://github.com/your-username)
+GitHub: [@Dedret](https://github.com/Dedret)
 
 ---
 
