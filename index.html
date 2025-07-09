@@ -32,6 +32,13 @@
       margin: 10px 0;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .job-card:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      background: #eaf1fb;
     }
     a.more-link {
       display: inline-block;
@@ -39,6 +46,42 @@
       color: #004aad;
       font-weight: bold;
       text-decoration: none;
+    }
+    /* Modal CSS */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background: rgba(0,0,0,0.3);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      margin: auto;
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      color: #aaa;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #004aad;
     }
   </style>
 </head>
@@ -48,25 +91,53 @@
   <section>
     <h2>📌 Latest Jobs</h2>
     <div class="CREATED BY">SOURABH</div>
-    <div class="job-card">SSC CHSL</div>
-    <div class="job-card">Group D</div>
-    <div class="job-card">RRB NTPC</div>
+    <div class="job-card" data-title="SSC CHSL" data-detail="SSC CHSL (Staff Selection Commission – Combined Higher Secondary Level) ki sari jaankari yahan show hogi.">SSC CHSL</div>
+    <div class="job-card" data-title="Group D" data-detail="Group D ki sari jaankari yahan show hogi.">Group D</div>
+    <div class="job-card" data-title="RRB NTPC" data-detail="RRB NTPC ki sari jaankari yahan show hogi.">RRB NTPC</div>
     <a class="more-link" href="latest-jobs.html">➡️ More</a>
   </section>
 
   <section>
     <h2>📝 Admit Cards</h2>
-    <div class="job-card">Navy</div>
-    <div class="job-card">SSC GD</div>
-    <div class="job-card">Army</div>
+    <div class="job-card" data-title="Navy" data-detail="Navy admit card ki sari jaankari yahan show hogi.">Navy</div>
+    <div class="job-card" data-title="SSC GD" data-detail="SSC GD admit card ki sari jaankari yahan show hogi.">SSC GD</div>
+    <div class="job-card" data-title="Army" data-detail="Army admit card ki sari jaankari yahan show hogi.">Army</div>
     <a class="more-link" href="admit-cards.html">➡️ More</a>
   </section>
 
   <section>
     <h2>📢 Results</h2>
-    <div class="job-card">NDA</div>
-    <div class="job-card">UPSC</div>
+    <div class="job-card" data-title="NDA" data-detail="NDA result ki sari jaankari yahan show hogi.">NDA</div>
+    <div class="job-card" data-title="UPSC" data-detail="UPSC result ki sari jaankari yahan show hogi.">UPSC</div>
     <a class="more-link" href="results.html">➡️ More</a>
   </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDetail"></p>
+    </div>
+  </div>
+
+  <script>
+    // Modal functionality for all job cards
+    document.querySelectorAll('.job-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        document.getElementById('modalTitle').innerText = card.getAttribute('data-title');
+        document.getElementById('modalDetail').innerText = card.getAttribute('data-detail');
+        document.getElementById('modal').style.display = 'flex';
+      });
+    });
+    document.getElementById('closeModal').onclick = function() {
+      document.getElementById('modal').style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('modal')) {
+        document.getElementById('modal').style.display = 'none';
+      }
+    };
+  </script>
 </body>
 </html>
